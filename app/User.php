@@ -34,10 +34,6 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    public function comments(){
-        return $this->hasMany('App\Comment');
-    }
-
     public function company(){
         return $this->hasMany('App\Company');
     }
@@ -52,5 +48,9 @@ class User extends Authenticatable
 
     public function projects(){
         return $this->belongsToMany('App\Project');
+    }
+
+    public function comments(){
+        return $this->morphMany('App\Comment', 'commentable');
     }
 }
