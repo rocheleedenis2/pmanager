@@ -22,7 +22,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::middleware(['auth'])->group(function() {
     Route::resource('companies', 'CompanyController');
     Route::resource('projects', 'ProjectController');
-    Route::get('projects/create/{ company? }', 'ProjectController@create');
+    Route::get('projects/create/{company_id?}', 'ProjectController@create');
     Route::resource('roles', 'RoleController');
     Route::resource('tasks', 'TaskController');
     Route::resource('users', 'UserController');

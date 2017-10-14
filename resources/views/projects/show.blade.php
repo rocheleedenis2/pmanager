@@ -14,15 +14,15 @@
 			<!-- <p><a class="btn btn-lg btn-success" href="#" role="button">Get started today</a></p> -->
 		</div>
 
-		<!-- Example row of columns -->
+		<!-- Comments create -->
 		<div class="row" style="background: white; margin: 10px;">
-			<a href="/projects/create" class="pull-right btn btn-default btn-sm">Add Project</a>
+			<!-- <a href="/projects/create" class="pull-right btn btn-default btn-sm">Add Project</a> -->
 			<br>
 			<div class="row container-fluid">
 				<form method="post" action="{{ route('comments.store') }}">
 					{{ csrf_field() }}
 					<!-- hiddens -->
-					<input type="hidden" name="commentable_type" value="Project">  
+					<input type="hidden" name="commentable_type" value="App\Project">  
 					<input type="hidden" name="commentable_id" value="{{ $project->id }}">  
 
 					<div class="form-group">
@@ -34,14 +34,15 @@
 						<label for="comment-content">Proof of work done (Url/Photos) <span class="required">*</span></label>
 						<textarea placeholder="Enter url o screeshots" id="comment-description" required name="url" rows="2" spellcheck="false" class="form-control autosize-target text-left"></textarea> 
 					</div>
-
-
 					<div class="form-group">
 						<input type="submit" class="btn btn-primary" value="Submit">
 					</div>
 				</form>
 			</div>
 		</div>
+
+		@include('partial.comments')
+		
 	</div>
 
 	<div class="col-sm-3 col-md-3 col-lg-3">

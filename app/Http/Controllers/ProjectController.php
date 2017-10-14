@@ -29,11 +29,11 @@ class ProjectController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create( $company_id = null)
+    public function create($company_id = null)
     {
         $companies = null;
         if(!$company_id){
-            $company = Company::where('user_id', Auth::user()->id)->get();
+            $companies = Company::where('user_id', Auth::user()->id)->get();
         }
         return view('projects.create', ['company_id'=>$company_id, 'companies'=>$companies]);
     }
@@ -74,7 +74,7 @@ class ProjectController extends Controller
         $project = Project::find($project->id);
 
         // $projects = Project::all();
-        return view('projects.show', ['project' => $project]);
+        return view('projects.show', ['project' => $project, 'comments' => $project->comments]);
     }
 
     /**

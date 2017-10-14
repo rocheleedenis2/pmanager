@@ -5,6 +5,7 @@
     <div class="row col-sm-9 col-md-9 col-lg-9 pull-left">
         <!-- Example row of columns -->
         <div class="row col-sm-12 col-md-12 col-lg-12" style="background: white; margin: 10px;">
+            <h2>Edit {{ $company->name }}</h2>
             <form method="post" action="{{ route('companies.update', [$company->id]) }}">
                 {{ csrf_field() }}
                 <input type="hidden" name="_method" value="put">
